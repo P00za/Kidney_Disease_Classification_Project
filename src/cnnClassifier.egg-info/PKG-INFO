@@ -1,0 +1,49 @@
+Metadata-Version: 2.4
+Name: cnnClassifier
+Version: 0.0.0
+Summary: A small Python package for kidney disease classification
+Home-page: https://github.com/P00za/Kidney_Disease_Classification_Project
+Author: P00za
+Author-email: professionalp00za@gmail.com
+Project-URL: Bug Tracker, https://github.com/P00za/Kidney_Disease_Classification_Project/issues
+Classifier: Programming Language <IP_ADDRESS> Python <IP_ADDRESS> 3
+Classifier: License <IP_ADDRESS> OSI Approved <IP_ADDRESS> MIT License
+Classifier: Operating System <IP_ADDRESS> OS Independent
+Description-Content-Type: text/markdown
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: project-url
+Dynamic: summary
+
+# Kidney_Disease_Classification_Project
+
+....
+# How to run?
+....
+### Steps:
+
+Clone the repository
+
+'''bash
+https://github.com/P00za/Kidney_Disease_Classification_Project
+'''
+...
+### Step 01- Create a conda environment after opening the repository
+
+'''bash
+conda create -n 'environment-name' python=3.8 -y
+'''
+
+'''bash 
+conda activate 'environment-name'
+'''
+
+
+### Step 02 - install the requirements
+'''bash 
+pip install -r requirements.txt
+'''
