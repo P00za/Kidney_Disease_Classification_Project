@@ -1,1 +1,39 @@
 [2026-05-06 06:56:30,155: INFO: main: Welcome to our custom log.]
+[2026-05-08 01:36:22,486: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 01:41:18,202: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 01:41:55,028: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:02:24,452: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:04:10,376: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:04:41,837: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:04:41,841: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 02:04:41,845: INFO: Common: created directory at :artifacts]
+[2026-05-08 02:04:41,846: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-08 02:08:09,748: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:08:09,750: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 02:08:09,753: INFO: Common: created directory at :artifacts]
+[2026-05-08 02:08:09,755: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-08 02:08:09,756: INFO: 3492357172: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-08 02:11:32,947: ERROR: 3492357172: Argument path of type <class 'str'> to <function get_size at 0x000002AF7E917A60> does not match annotation type <class 'pathlib.Path'>]
+Traceback (most recent call last):
+  File "C:\Users\p00za\AppData\Local\Temp\ipykernel_22620\3492357172.py", line 19, in download_file
+    logger.info(f"File downloaded successfully from {dataset_url} and saved to :[{zip_download_dir}] with size :[{get_size(zip_download_dir)}]")
+                                                                                                                 ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\ensure\main.py", line 845, in __call__
+    raise EnsureError(msg.format(
+ensure.main.EnsureError: Argument path of type <class 'str'> to <function get_size at 0x000002AF7E917A60> does not match annotation type <class 'pathlib.Path'>
+[2026-05-08 02:15:04,291: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:15:04,294: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 02:15:04,297: INFO: Common: created directory at :artifacts]
+[2026-05-08 02:15:04,298: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-08 02:15:04,300: INFO: 1287612163: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-08 02:20:03,829: INFO: 1287612163: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-08 02:49:06,097: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-08 02:49:06,099: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 02:49:06,100: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 02:49:06,100: INFO: Common: created directory at :artifacts]
+[2026-05-08 02:49:06,101: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-08 02:49:06,102: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-08 02:52:38,250: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-08 02:52:58,811: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
