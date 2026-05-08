@@ -37,3 +37,33 @@ ensure.main.EnsureError: Argument path of type <class 'str'> to <function get_si
 [2026-05-08 02:52:58,811: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
 
 x==========x]
+[2026-05-08 23:24:51,203: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 23:30:51,698: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 23:30:51,714: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 23:30:51,722: INFO: Common: created directory at :artifacts]
+[2026-05-08 23:30:51,725: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-08 23:37:09,113: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-08 23:37:09,117: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-08 23:37:09,120: INFO: Common: created directory at :artifacts]
+[2026-05-08 23:37:09,124: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-08 23:38:50,584: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-09 00:09:45,528: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-09 00:09:45,534: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-09 00:09:45,536: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-09 00:09:45,538: INFO: Common: created directory at :artifacts]
+[2026-05-09 00:09:45,540: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-09 00:09:45,541: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-09 00:56:48,795: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-09 00:57:11,858: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-09 00:57:11,860: INFO: main: ******************]
+[2026-05-09 00:57:11,860: INFO: main: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-09 00:57:11,862: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-09 00:57:11,864: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-09 00:57:11,864: INFO: Common: created directory at :artifacts]
+[2026-05-09 00:57:11,864: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-09 00:57:12,359: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-09 00:57:12,589: INFO: main: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
