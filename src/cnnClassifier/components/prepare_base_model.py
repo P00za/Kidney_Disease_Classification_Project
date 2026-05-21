@@ -6,7 +6,6 @@ from pathlib import Path
 from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
 
 
-
 class PrepareBaseModel:
     def __init__(self, config: PrepareBaseModelConfig):
         self.config = config    
@@ -31,7 +30,7 @@ class PrepareBaseModel:
             for layer in model.layers[:-freeze_till]:
                 layer.trainable = False
 
-        flatten_in = tf.keras.layers.Flatten()(model.output)
+        flatten_in = tf.keras.layers.GlobalAveragePooling2D()(model.output)
         prediction = tf.keras.layers.Dense(
             units=classes, 
             activation="softmax"
@@ -44,7 +43,7 @@ class PrepareBaseModel:
         )
 
         full_model.compile(
-            optimizer=tf.keras.optimizers.SGD(learning_rate=learning_rate),
+            optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
             loss=tf.keras.losses.CategoricalCrossentropy(),
             metrics=["accuracy"]
 

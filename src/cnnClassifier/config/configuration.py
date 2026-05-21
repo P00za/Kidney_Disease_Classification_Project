@@ -1,8 +1,8 @@
 from cnnClassifier.constants import *
-from cnnClassifier.utils.Common import read_yaml,create_directories
+from cnnClassifier.utils.Common import read_yaml,create_directories,save_json
 from cnnClassifier.entity.config_entity import DataIngestionConfig
 from cnnClassifier.entity.config_entity import PrepareBaseModelConfig
-from cnnClassifier.entity.config_entity import TrainingConfig
+from cnnClassifier.entity.config_entity import TrainingConfig, EvaluationConfig
 import os
 
 class ConfigurationManager:
@@ -56,7 +56,9 @@ class ConfigurationManager:
         training = self.config.training
         prepare_base_model = self.config.prepare_base_model
         params = self.params
-        training_data = os.path.join(self.config.data_ingestion.unzip_dir, "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone") 
+        training_data = os.path.join(
+            self.config.data_ingestion.unzip_dir,"CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone","CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone"
+        )
 
         create_directories([
             Path(training.root_dir)
@@ -76,4 +78,15 @@ class ConfigurationManager:
         return training_config
 
         
-        
+
+
+    def get_evaluation_config(self) -> EvaluationConfig:
+        eval_config = EvaluationConfig(
+            path_of_model= "artifacts/training/trained_model.h5",
+            training_data = Path("artifacts/data_ingestion/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone/CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone"),
+            mlflow_uri =  os.getenv("MLFLOW_TRACKING_URI"),
+            all_params = self.params,
+            params_image_size = self.params.IMAGE_SIZE,
+            params_batch_size = self.params.BATCH_SIZE
+        )
+        return eval_config    

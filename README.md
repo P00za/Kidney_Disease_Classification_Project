@@ -42,3 +42,37 @@ conda activate 'environment-name'
 '''bash 
 pip install -r requirements.txt
 '''
+
+
+
+
+
+### MLFLOW
+
+[Documentation](https://mlflow,org/docs/latest/index.html)
+
+#### cmd
+- mlflow ui
+
+### dagshub
+
+[dagshub](https://dagshub.com)
+
+MLFLOW_TRACKING_URI="https://dagshub.com/P00za/Kidney_Disease_Classification_Project.mlflow"
+
+MLFLOW_TRACKING_USERNAME="P00za"
+
+MLFLOW_TRACKING_PASSWORD="Your Token"
+
+
+  Run this to export as env variables:
+
+  '''bash
+
+ export  MLFLOW_TRACKING_URI="https://dagshub.com/P00za/Kidney_Disease_Classification_Project.mlflow"
+
+ export MLFLOW_TRACKING_USERNAME="P00za"
+
+ export MLFLOW_TRACKING_PASSWORD="Your Token"
+
+  '''
