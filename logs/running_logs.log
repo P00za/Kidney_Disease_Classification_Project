@@ -292,3 +292,251 @@ x==================================x]
 [2026-05-21 02:29:59,070: INFO: main: >>>>> stage Evaluation stage completed <<<<<
 
 x==========x]
+[2026-05-21 15:56:58,288: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-21 15:56:58,297: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 15:56:58,297: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 15:56:58,301: INFO: Common: created directory at :artifacts]
+[2026-05-21 15:56:58,301: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-21 15:56:58,304: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-21 16:00:31,619: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-21 16:01:11,191: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-21 16:10:10,583: INFO: stage_02_prepare_base_model: ******************]
+[2026-05-21 16:10:10,584: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-21 16:10:10,589: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 16:10:10,591: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 16:10:10,591: INFO: Common: created directory at :artifacts]
+[2026-05-21 16:10:10,595: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-21 16:10:12,182: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-21 16:10:12,793: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-21 16:10:34,263: INFO: stage_03_model_training: ****************************************]
+[2026-05-21 16:10:34,263: INFO: stage_03_model_training: >>>>> stage Training started <<<<<]
+[2026-05-21 16:10:34,263: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 16:10:34,263: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 16:10:34,270: INFO: Common: created directory at :artifacts]
+[2026-05-21 16:10:34,270: INFO: Common: created directory at :artifacts\training]
+[2026-05-21 17:35:21,123: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-21 17:35:21,135: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 17:35:21,152: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 17:35:21,154: INFO: Common: created directory at :artifacts]
+[2026-05-21 17:35:21,155: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-21 17:35:21,156: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-21 17:35:32,324: ERROR: data_ingestion: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\socket.py", line 974, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id, zip_download_dir, quiet=False)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 237, in download
+    res = sess.get(url, stream=True, verify=verify)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\adapters.py", line 678, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+[2026-05-21 17:35:32,368: ERROR: main: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 204, in _new_conn
+    sock = connection.create_connection(
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\util\connection.py", line 60, in create_connection
+    for res in socket.getaddrinfo(host, port, family, socket.SOCK_STREAM):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\socket.py", line 974, in getaddrinfo
+    for res in _socket.getaddrinfo(host, port, family, type, proto, flags):
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+socket.gaierror: [Errno 11001] getaddrinfo failed
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 787, in urlopen
+    response = self._make_request(
+               ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 488, in _make_request
+    raise new_e
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 464, in _make_request
+    self._validate_conn(conn)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 1093, in _validate_conn
+    conn.connect()
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 759, in connect
+    self.sock = sock = self._new_conn()
+                       ^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connection.py", line 211, in _new_conn
+    raise NameResolutionError(self.host, self, e) from e
+urllib3.exceptions.NameResolutionError: HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\adapters.py", line 645, in send
+    resp = conn.urlopen(
+           ^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\connectionpool.py", line 841, in urlopen
+    retries = retries.increment(
+              ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\util\retry.py", line 535, in increment
+    raise MaxRetryError(_pool, url, reason) from reason  # type: ignore[arg-type]
+    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+urllib3.exceptions.MaxRetryError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 15, in <module>
+    data_ingestion_pipeline.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 16, in main
+    data_ingestion.download_file()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 34, in download_file
+    raise e
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 28, in download_file
+    gdown.download(prefix+file_id, zip_download_dir, quiet=False)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 237, in download
+    res = sess.get(url, stream=True, verify=verify)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 605, in get
+    return self.request("GET", url, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 592, in request
+    resp = self.send(prep, **send_kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\sessions.py", line 706, in send
+    r = adapter.send(request, **kwargs)
+        ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\adapters.py", line 678, in send
+    raise ConnectionError(e, request=request)
+requests.exceptions.ConnectionError: HTTPSConnectionPool(host='drive.google.com', port=443): Max retries exceeded with url: /uc?id=1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5 (Caused by NameResolutionError("HTTPSConnection(host='drive.google.com', port=443): Failed to resolve 'drive.google.com' ([Errno 11001] getaddrinfo failed)"))
+[2026-05-21 17:46:20,051: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-21 17:46:20,075: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 17:46:20,092: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 17:46:20,092: INFO: Common: created directory at :artifacts]
+[2026-05-21 17:46:20,092: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-21 17:46:20,092: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-21 17:51:12,520: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-21 17:51:35,528: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-21 17:51:35,528: INFO: main: ******************]
+[2026-05-21 17:51:35,528: INFO: main: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-21 17:51:35,538: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 17:51:35,540: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 17:51:35,540: INFO: Common: created directory at :artifacts]
+[2026-05-21 17:51:35,541: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-21 17:51:36,499: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-21 17:51:36,789: INFO: main: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-21 17:51:36,789: INFO: main: ****************************************]
+[2026-05-21 17:51:36,791: INFO: main: >>>>> stage Training started <<<<<]
+[2026-05-21 17:51:36,792: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-21 17:51:36,794: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-21 17:51:36,795: INFO: Common: created directory at :artifacts]
+[2026-05-21 17:51:36,796: INFO: Common: created directory at :artifacts\training]
+[2026-05-22 00:16:20,328: INFO: main: >>>>> stage Training completed <<<<<]
+[2026-05-22 00:16:20,336: INFO: main: **************************]
+[2026-05-22 00:16:20,336: INFO: main: >>>>> stage Evaluation stage started <<<<<]
+[2026-05-22 00:16:20,345: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-22 00:16:20,352: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-22 00:16:20,354: INFO: Common: created directory at :artifacts]
+[2026-05-22 00:46:57,022: INFO: Common: json file saved at : scores.json]
+[2026-05-22 00:46:57,022: INFO: Common: json file saved at : scores.json]
+[2026-05-22 00:47:09,931: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-05-22 00:47:11,377: INFO: builder_impl: Assets written to: C:\Users\p00za\AppData\Local\Temp\tmpsq2l0z6w\model\data\model\assets]
+[2026-05-22 00:49:15,201: INFO: main: >>>>> stage Evaluation stage completed <<<<<
+
+x==========x]
+[2026-05-22 00:59:01,903: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-22 00:59:01,909: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-22 00:59:01,914: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-22 00:59:01,914: INFO: Common: created directory at :artifacts]
+[2026-05-22 00:59:01,917: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-22 00:59:01,917: INFO: data_ingestion: Downloading file from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts/data_ingestion/kidney_disease.csv]]
+[2026-05-22 01:08:15,339: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts/data_ingestion/kidney_disease.csv] ]
+[2026-05-22 01:09:10,489: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-22 01:14:51,535: INFO: stage_02_prepare_base_model: ******************]
+[2026-05-22 01:14:51,535: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-22 01:14:51,550: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-22 01:14:51,550: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-22 01:14:51,560: INFO: Common: created directory at :artifacts]
+[2026-05-22 01:14:51,576: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-22 01:14:53,149: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-22 01:14:53,745: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-22 01:15:17,482: INFO: stage_03_model_training: ****************************************]
+[2026-05-22 01:15:17,489: INFO: stage_03_model_training: >>>>> stage Training started <<<<<]
+[2026-05-22 01:15:17,489: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-22 01:15:17,498: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-22 01:15:17,500: INFO: Common: created directory at :artifacts]
+[2026-05-22 01:15:17,501: INFO: Common: created directory at :artifacts\training]
+[2026-05-22 09:07:59,524: INFO: stage_03_model_training: >>>>> stage Training completed <<<<<]
+[2026-05-22 09:18:46,135: INFO: stage_04_model_evaluation_mlflow: **************************]
+[2026-05-22 09:18:46,144: INFO: stage_04_model_evaluation_mlflow: >>>>> stage Evaluation stage started <<<<<]
+[2026-05-22 09:18:46,144: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-22 09:18:46,144: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-22 09:18:46,144: INFO: Common: created directory at :artifacts]
+[2026-05-22 09:31:50,375: INFO: Common: json file saved at : scores.json]
+[2026-05-22 09:31:50,384: INFO: Common: json file saved at : scores.json]
+[2026-05-22 09:32:01,352: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-05-22 09:32:02,701: INFO: builder_impl: Assets written to: C:\Users\p00za\AppData\Local\Temp\tmp7a724lof\model\data\model\assets]
+[2026-05-22 09:34:43,475: INFO: stage_04_model_evaluation_mlflow: >>>>> stage Evaluation stage completed <<<<<
+
+x==========x]
