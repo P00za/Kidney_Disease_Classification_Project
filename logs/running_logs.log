@@ -540,3 +540,597 @@ x==================================x]
 [2026-05-22 09:34:43,475: INFO: stage_04_model_evaluation_mlflow: >>>>> stage Evaluation stage completed <<<<<
 
 x==========x]
+[2026-05-22 12:13:38,022: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 12:13:38,022: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 12:18:35,416: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 12:18:35,416: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 12:31:38,927: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:31:38] "GET / HTTP/1.1" 200 -]
+[2026-05-22 12:32:23,465: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:32:23] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:32:53,991: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:32:53] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:33:01,087: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:33:01] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:33:21,070: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:33:21] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:33:44,022: WARNING: polymorphic_function: 5 out of the last 5 calls to <function Model.make_predict_function.<locals>.predict_function at 0x00000238EAA57240> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2026-05-22 12:33:44,036: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:33:44] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:33:48,984: WARNING: polymorphic_function: 6 out of the last 6 calls to <function Model.make_predict_function.<locals>.predict_function at 0x00000238EBBA1BC0> triggered tf.function retracing. Tracing is expensive and the excessive number of tracings could be due to (1) creating @tf.function repeatedly in a loop, (2) passing tensors with different shapes, (3) passing Python objects instead of tensors. For (1), please define your @tf.function outside of the loop. For (2), @tf.function has reduce_retracing=True option that can avoid unnecessary retracing. For (3), please refer to https://www.tensorflow.org/guide/function#controlling_retracing and https://www.tensorflow.org/api_docs/python/tf/function for  more details.]
+[2026-05-22 12:33:48,998: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:33:48] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 12:40:30,659: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 12:40:30,659: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 12:40:43,011: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:40:43] "GET / HTTP/1.1" 200 -]
+[2026-05-22 12:40:54,145: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\app.py", line 38, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    test_image = image.load_img(imagename, target_size=(224, 224))
+                                ^^^^^^^^^
+NameError: name 'imagename' is not defined
+[2026-05-22 12:40:54,194: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:40:54] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-05-22 12:52:14,853: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:52:14] "GET / HTTP/1.1" 200 -]
+[2026-05-22 12:52:27,221: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\app.py", line 38, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    test_image = image.load_img(imagename, target_size=(224, 224))
+                                ^^^^^^^^^
+NameError: name 'imagename' is not defined
+[2026-05-22 12:52:27,229: INFO: _internal: 127.0.0.1 - - [22/May/2026 12:52:27] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-05-22 13:05:15,581: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 13:05:15,581: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 13:05:28,913: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:05:28] "GET / HTTP/1.1" 200 -]
+[2026-05-22 13:05:39,700: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:05:39] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:05:58,804: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:05:58] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:06:18,206: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:06:18] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:06:43,676: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:06:43] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:10:23,519: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 13:10:23,519: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 13:10:31,625: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:10:31] "GET / HTTP/1.1" 200 -]
+[2026-05-22 13:10:41,259: ERROR: app: Exception on /predict [POST]]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 2190, in wsgi_app
+    response = self.full_dispatch_request()
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1486, in full_dispatch_request
+    rv = self.handle_user_exception(e)
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\extension.py", line 176, in wrapped_function
+    return cors_after_request(app.make_response(f(*args, **kwargs)))
+                                                ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1484, in full_dispatch_request
+    rv = self.dispatch_request()
+         ^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask\app.py", line 1469, in dispatch_request
+    return self.ensure_sync(self.view_functions[rule.endpoint])(**view_args)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\flask_cors\decorator.py", line 121, in wrapped_function
+    resp = make_response(f(*args, **kwargs))
+                         ^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\app.py", line 38, in predictRoute
+    result = clApp.classifier.predict()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\prediction.py", line 16, in predict
+    test_image = image.img_to_array(test_image)
+                                    ^^^^^^^^^^
+UnboundLocalError: cannot access local variable 'test_image' where it is not associated with a value
+[2026-05-22 13:10:41,273: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:10:41] "[35m[1mPOST /predict HTTP/1.1[0m" 500 -]
+[2026-05-22 13:13:48,448: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-22 13:13:48,448: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 13:20:01,450: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:01] "GET / HTTP/1.1" 200 -]
+[2026-05-22 13:20:09,605: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:09] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:20:22,455: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:22] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:20:24,723: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:24] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:20:39,114: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:39] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 13:20:50,413: INFO: _internal: 127.0.0.1 - - [22/May/2026 13:20:50] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 16:30:35,226: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://10.203.87.242:8080]
+[2026-05-22 16:30:35,226: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-22 16:32:04,807: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:04] code 400, message Bad request version ('\x90Ø\x8dðÁ"ð#+')]
+[2026-05-22 16:32:04,825: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:04] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03\x7f\x94\x0bO\x19,\x9e\x0d\x9bcöTlÔç!µ*.´Ö`\x9bè$\x15+\x9bñH6\x05 ø­ m\x9dj}ù\x1b\x81\x9ba&È¿;)\x1065ç0nh\x15\x93\x80}Và\x80\x85\x00 JJ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85\x9a\x9a\x00\x00\x00-\x00\x02\x01\x01\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04í**\x00\x01\x00\x11ì\x04À7©xQÙDs©§Ôe¹l¢sÁf®e6µ¤ {\x0f\x98ÃJ'r8\x88UHE\x1dÂå\x98~ðEÅ\x13\x8fé\x07©®ä\\\x89V\x81Z;2gZ\x81nGE\x99¢\x0f<H\x9e\x81È\x08\x0e³²\x86Cp\x0bõE`Ù1æ&Mj\x8a¢Ñ²1|GEJñ\x965\x95\x04AHÈqk}¦©¨²Vgër\x0bÊ\x0b_\x8eL\x9cMÛ´»a\x8c#\x87\x0bÆá\x84Î»\x119 ]Æ\x17\x1f\\\x98x\x1eÑÃ\x17#u"¦\x9ai!]b¢Ê\x0dÀ\x96âZL÷÷\x1ba¦\x9am\x979ö\x96gß@Ge .¬¢1\x09\x07»\x02\x97¥u\x8a\x17\x9fä>Ã\x80ÆG\x9a"¯'\x01'| E©¡%ëj\x96\x01d\x1f²k%<\x93\x93´¸\x076\x02\x95·h\x93\x17HÏ\x11Â,B\x96\x93¤Eÿ\x0c«\x9b«JöU9÷º\x84ä@;µ\x01kn\x93pæ\x02\x7fF\x93²\x13,y\x05ð*.\x19½Þ\x9bo¸y\x18 4[±\x92[¤ \x12?RR7\x93¢±¹d"×aQ÷\x11\x885~³`\x7f4Z\x02\x12|\x1dÌÓ\x8bP´\x8dÙÖ\x06AGÀ70\x1e=éC\x18\x81\x1a8[\x86Ôã\x94ú\\)Ïrr«tZI\x02\x01¿\x04£\x16Ò|8U¶ÓV¹4Zªu±;`w®\x17¬x\x8c×Îp#FâÂ1u÷m~ Ch8{\x16·YN\x94º\x1d&-sv\x81ºb£z\x13+i'Åýp)\x1c\x9c*¤ö¼\x84\x03\x92t[u\x05Àu]\x85\x86îÉNËlÄÝë\x07Ì\x1b¶\x15¹\x81Â\x81\x96\x1b\x83\x1eÝ4\x87(ÖlØ\x95¥ù3ÏC\x96]ZÁ)õIÁ\x00+\x04ÍÅ\x8250/X¡\x0b\x90Ø\x8dðÁ"ð#+[0m" 400 -]
+[2026-05-22 16:32:04,826: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:04] code 400, message Bad request version ('**\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥\x1a\x1a\x00\x00\x00')]
+[2026-05-22 16:32:04,829: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:04] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03\x01ê>£\x7f£¼QÈF\x93LZÅîãøßÆí¾Ñ\x7f lQFÔZFrm \x81r\x871>h\x81\x92y±9©wQ\x0bj\x9c»\x98ð\x04\x8bì\x19b\x8cc\x94\x082H9\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥\x1a\x1a\x00\x00\x00[0m" 400 -]
+[2026-05-22 16:32:05,074: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] code 400, message Bad request version ('localhostÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00\x12\x00\x00\x00#\x00\x00\x00')]
+[2026-05-22 16:32:05,074: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] "[31m[1m\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03¨v\x9a<î%ÇWYa¬Ä}ü-2T^¥\x95\x83¤~k­\x89|\x1fÍ$\x1b\x88 á\x0c\x93\x17èmÚ\x93\x0dfè¾\x91C~íÿ>\x06\x84\x8b¦¥´ÌÊ°o}ÿ\x91©\x00 ªª\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06eJJ\x00\x00\x00\x0b\x00\x02\x01\x00\x00+\x00\x07\x06úú\x03\x04\x03\x03\x00\x05\x00\x05\x01\x00\x00\x00\x00þ\x0d\x00Ú\x00\x00\x01\x00\x01¡\x00 mÇ\x08K»×ôú\x88¡GÈ±\x11\x19\x8e\x14ÔA"\x8eÎ@ÁÍc¡lVcä_\x00°Ïçy\x8c\x04\x1cØZl^,ÿ¯¿PZ\x95¨\x1bL©F°çÙÛ4­\x94\x07¢¡~9ø\x95Y\x8fR\x97\x1dþ\x97P¡ëg)\x96ê@[p§zt\x18\x04\x14±\x1df»ÑÚY\x1e\x8e\x88dÁ¡\x10â\x10\x04ÝP\x1bf\x13éóÑÒÑ\x1c$&Ø?w&\x82\x0b)\x88ªåËi©kG8\x7ft\x98\x85D\x9d1Í\x1e»"°rÑñ!ã(~ ¡Ã\x13Y\x8fïD\x03oeB\x95\x183eq\x08DÅ.Ì¯¹IbU=4,\x0bÏRlû®<<ÍÎ\x1fÅ%jfI\x01X%|_#\x00\x1b\x00\x03\x02\x00\x02\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhostÿ\x01\x00\x01\x00\x00\x17\x00\x00\x00\x12\x00\x00\x00#\x00\x00\x00[0m" 400 -]
+[2026-05-22 16:32:05,138: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] code 400, message Bad request version ('\x9eu¬óû,Ô\x98')]
+[2026-05-22 16:32:05,138: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03\x81äÿó(\x8a%`EÕ®D[Àµ>6u\x09Îü\x94áyT\x8dwúyuög \x86ø\x0cPÑ\x02\x9eËU¥¦pÎP8\x8e¶vÉÁ\x0c¨KÆ;%Ç6ÿ\x94ÁÛ\x00 **\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥**\x00\x00\x00+\x00\x07\x06ÚÚ\x03\x04\x03\x03\x003\x04ï\x04í::\x00\x01\x00\x11ì\x04ÀÆ\x04W.ö¼©ÂÉSéQ\x07¼\x8bì\x17iu\x9c»Ó¢S\x16Õ¡m\x91Â\x91X\x9f{6'&i®s\x84\x97XhOo\x19\x01\\º\x92Î\x98.Ø\x10\x11\x11'h\x86¦É\x15àÏù\x1aLU©Wÿ7F¨\x8b\x09Ð\x1b\x0eÛ\x17I1\x11buã\x8e\x82hª!¸¥ZH\x17\x93Ve\x13¨¶Ø¢\x10ÅÃ\x97Â¬\x93Ë\x01\x85Qi\x83\x92w jÚÃ\x9bú\x01e\x17\x11\x80t#ý\x13\x93KS¶n¤-Ô\x16©Ý°\x90\x89\x16\x93\x16Ú\x88@{¯\x86\x06°<V\x87\x01²im{xÎ9}¯À6­Ð\x85aó\x8c %\x82¨+\x11öÙEÙ¥Âá\x11ÌdX\x9f\x941¢«Â\x11\x0d\x1bÏ{5QÄ¨\x1e\x03ZeÆFq_\x91g5\x85\x8bvA¼¹¡7>V\x93Úl\x9eþF\x0d¾ë?Î¨A"[oÄØ(¦\x82\x07õ$½ç`\x01lð\x92p\x060RËfêÊÁ/´uCú\x8f6Á+\x9aæ§\x99õ\x00TÈªÉaXÏ0ËôdÂ(³\x10\x0bªTpåÊ\x89ð\x88«\x1b\x09\x9eu¬óû,Ô\x98[0m" 400 -]
+[2026-05-22 16:32:05,138: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] code 400, message Bad request version ('\x9eüUx\x91')]
+[2026-05-22 16:32:05,138: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03é¸H÷1Gp\x00\x993\x868É;¸\x87û_c\x188\x1eI\x8ankø\x82\x9cÞd" \x12¢â¸*,,±Ä\x05P]\x0eÎC\x0e\x97¨\x9e\x86 ¾ó"\x00\x06w\x8a\\#,a\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥úú\x00\x00\x003\x04ï\x04íÚÚ\x00\x01\x00\x11ì\x04Àrg\x7f±ËS-³I\x15ÊËZ\\^lU\x1f\x9eüUx\x91[0m" 400 -]
+[2026-05-22 16:32:05,393: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] code 400, message Bad request version ('A+v\x04+O\x80<úvqÍk\x93\x97')]
+[2026-05-22 16:32:05,396: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:05] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03\x9eË·H.\x9f»x\x02\x0b¢\x9fk¢9@ÄÉ³jª©\x8b¢\x95mÎý\x1c¨~\x07 Að­\x05\x7fõ@+=\x95öôý\x05¨¶½ø\x19í2f¹_\x06AüVæéÁã\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Eúú\x00\x00\x00#\x00\x00\x003\x04ï\x04íZZ\x00\x01\x00\x11ì\x04À=\x90]X,\x06mP8\x192\x86·Ñ)c4\x93ö\x85\x98|üL>xA¼µAJÀrKº\x9a\x9fR =\x81|¼Wd<;RvPÌ>\x85¸D\x9c\x91Ø×\x84"9gý7¿n\x86Ã\x90ñt×3]\x1e; #\x01\x924ðs\x10uÊB¨\x83\x90ð³h\x15b\x0dVÄ8\x17\x93ÛÈªU\x00ÅC\x87¼ïl®)\x15¹K\x993Ã\x86ÂlÜ§\x8ap\x01\x1ch(\x17p\x13·\x81\x00g4zÀ\x11{\x12e´:ÙSÛóÀ³(Q¬è¯éÚ\x1bÆK\x13êªÄ\x1b<dLiÎå\x93\x1bh4.Ï\x12¶ÿÄ\x80\x8c"\\Ý\x01Böø9\x99\x93Ë\x1eUCÊf\x8e$C\x06\x0d:\x84½ö\x13"y«¯Æ\x1e8\x1b\x11\x11\x86Sâ\x99:\x9f\x17\x81Zª\x01g[(¶\x89\x12\x17\x80\x1bÍ)\x85\\\x19\x02°6\x1cÉêJ7Ð\x00rÊ\x9f\x92Ð\x94ÉK\x94\x8c\x04²?\x96¯BÅyÌÛ\x15\x1a3¥\x7f`cÄ<R9è7Àx\x82\x80a\x80¥¼ª\x1at·2&2´\x84i\x8e\x1bEÆ\x99¼ÅLOÝ\x89\x82\x98|^ µ\x87í\x13\x01_ Å\x9cç=Óô¾U{ÇÅ"\x1f¿\x8b¾ÑÃmô\x94t\x8d3yÎe\x0flû\x83\x88x.\x0f×\x9e\x00wf\x1cA+v\x04+O\x80<úvqÍk\x93\x97\x1c[0m" 400 -]
+[2026-05-22 16:32:09,371: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('úú\x00\x00\x00\x17\x00\x00\x00+\x00\x07\x06JJ\x03\x04\x03\x03\x00-\x00\x02\x01\x01\x00')]
+[2026-05-22 16:32:09,374: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03]\x03Ù\x12\x1a]ô{68\x91\x0dnî.\x94^\x8fÜ\x8a9`©Êç\x09z9l±ªú ®\\\x80PñÙ{\x94\x0fá\x94BðÓHM\x11$\x89LT>\x93\x80\x0c\x1dUt\x1d\x87¼à\x00 zz\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85úú\x00\x00\x00\x17\x00\x00\x00+\x00\x07\x06JJ\x03\x04\x03\x03\x00-\x00\x02\x01\x01\x00[0m" 400 -]
+[2026-05-22 16:32:09,377: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('-ÿ¾ßP\x93ñpµùÌÎ*±_\x8b`\x9f;\x13)0³C,\x00')]
+[2026-05-22 16:32:09,377: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03\x10YØëVfhvr?<\x0c±\x87Þ¢ ¼}UþP)H\x80{I®\x05#u$ ü«\x18;çP\x85\x17\x97PS\x9auÚ¨è*\x83m\x8c¤æÌ\x10ë%ÔÓm;V\x17\x00 \x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06E\x9a\x9a\x00\x00\x00\x17\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01Æ\x00 \x8b_´\x11ªÚ\x83òLU¨úÏÏÖÅ® ­\x05f_gT\x97a©0ÎÁ\x8bA\x00\x90$v­8\x99¢ø\x8e®<Ùõ\x0fë\x85\x00§MÛ~\x83öÚ}\x8fðýr\x93Ì\x1e\x8d\x90Ó\x1a»Ô\x18ìV\x10y\x84\x7f\x02¾5\x9f[~"³\x1cQÏ±Éªß@¿\x0e\x0dåÖô2/<Ô\x8e+O@P\x1e\x9e\x19ùJ³J®ÑJ[=\x94ÐÜ%eéÿø\x14\x1e|Aè\x1cæ9×\x04Ë\x0c\x16ÑÍ\x9f>a\x16\x03È¾Y\x09-ÿ¾ßP\x93ñpµùÌÎ*±_\x8b`\x9f;\x13)0³C,\x00[0m" 400 -]
+[2026-05-22 16:32:09,641: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥**\x00\x00\x00')]
+[2026-05-22 16:32:09,641: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03pU\x86Ï\x01\x8e¡°X\x07\x8bv-ì\x1c{\x8aKi\x9fZO\x18Ý+sKÏìlø· Ç½Ä©ÓÒ\x9eçýeé¨Ó¡Rú2d\x15\x82\x9f^ñ2AVÉ\x83\x8d8¾ù\x00 ::\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥**\x00\x00\x00[0m" 400 -]
+[2026-05-22 16:32:09,678: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('\x00\x02\x01\x00\x00\x12\x00\x00\x003\x04ï\x04íÚÚ\x00\x01\x00\x11ì\x04À')]
+[2026-05-22 16:32:09,678: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03\x8d¸\x84F\x85J3\x81åµcÊô<(X-eöVTJ±\x90ÚñßVy\x89ª( 1ñ?},ýÔ\x05_½q)\x00Øõúu\x84¯Åª~·ã9Jý5±§À÷\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Ejj\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00+\x00\x07\x06ºº\x03\x04\x03\x03DÍ\x00\x05\x00\x03\x02h2\x00\x0b\x00\x02\x01\x00\x00\x12\x00\x00\x003\x04ï\x04íÚÚ\x00\x01\x00\x11ì\x04À[0m" 400 -]
+[2026-05-22 16:32:09,684: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('\x00\x02\x01\x00\x00')]
+[2026-05-22 16:32:09,686: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x031x\x0fã}:\x1b\x85<÷Ø3¤\x963\x96¾êVéX«P)ÓÑÄC4\x06äû ã£\x83\x0eÑÂ®\x08Ñ2°ø\x87¹\x17w¨m\x17Më\x92:ëè÷\x1a\x89ôÆ\x11\x08\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Ejj\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x011\x00 3Ìòy\x9f,C¥­f²\x15PÔ¡\x0f\x0eZ\x15|¼\x1dÎ\x19\\3\x14{\x8d\x03\x02x\x00\x90\x90,VÊ`\x0eÿ\x02¢ßg\x0e*à\x9d\x9dö\x0c\x9a\x1aã·\x8e\x86d±c+Ä®\x19Ð\x89dKÙ\x0cVì°\x16H(É\x8d\x87¥qD==\x1c\x9d¾Î\x99Ì\x93ËAj\x92NF¥{ÊÕn\x04]\x99å:fµ.5=\\^gX\x9aÈÙjþ\x95!@[Ü\x0b\x8c¸p\x94øTñ\x17J3'ìBD\x1ca\x8eG¶W¸¨­J\\±ç%/\x12ª¿Ñ\x7f\x0e»»m@\x1cfìPJ@G\x81ô\x0cl\x00#\x00\x00\x00\x12\x00\x00\x00-\x00\x02\x01\x01\x00\x1b\x00\x03\x02\x00\x02DÍ\x00\x05\x00\x03\x02h2\x00\x17\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00+\x00\x07\x06ÊÊ\x03\x04\x03\x03\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0b\x00\x02\x01\x00\x00[0m" 400 -]
+[2026-05-22 16:32:09,950: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] code 400, message Bad request version ('ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥\x1a\x1a\x00\x00\x00\x17\x00\x00\x00')]
+[2026-05-22 16:32:09,950: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:09] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03é/W$\x1dûF\x9aj\x81äÞEiZäÑ2 D¸ (¹Î\x80Ñ«iGV\x05 Ma\x07>}%Ç\x15\x89\x00\x07Oò¹\x903þ\x07\x0f\x7fÿ¯\x07r\x1c\x84E\x8dõ\x89½v\x00 ZZ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥\x1a\x1a\x00\x00\x00\x17\x00\x00\x00[0m" 400 -]
+[2026-05-22 16:32:15,074: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('\x82')]
+[2026-05-22 16:32:15,074: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03Å\\,}\x9b\x7fÄU\x08F6í·\x03bõ»¸3{1\x863`7UkQÚÂ\x93K ¯Ìã\x9b\x03oÆõÉ´°\x95\x12 Ç\x87Ä["Ù\x86¦\x1fa gµ½Ó!\x89p\x00 zz\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06e**\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x17\x00\x00þ\x0d\x00Ú\x00\x00\x01\x00\x01o\x00 iE\x1d\x82[0m" 400 -]
+[2026-05-22 16:32:15,081: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('\x93¥ÀC*ñ\x9fÓï\x9fòÆ\x18©\x93Y\x8a\x000Æ|³"\x00\x9cñØXà\x12\x9d^/¶\x83¯¶\x8dZÍ\x98\x8d7ÃXÊZÇ-\x0e¹yR')]
+[2026-05-22 16:32:15,081: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03`¸à}\x03\x91aL²ÐNðdÉX\x91@b\x02\x0eû<¼\x89\x02Ï\x08ó\x87»ú\x8b ãìëYiüWÅB\x03\x1e\x1b¿G¸BàmâX¨s\x9dl\x1fL´:¥«ß¹\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Eªª\x00\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01¬\x00 2»°¼]ÿË\x93\x7fR.`Þí¥××\x02\x00îRÍÈH)h´p¨_0!\x00\x90÷ÈÍóÒ\x80\x1dË»G\x9a\x92\x98÷cS+¼+ÝÅi@%<\x1c\x93¥ÀC*ñ\x9fÓï\x9fòÆ\x18©\x93Y\x8a\x000Æ|³"\x00\x9cñØXà\x12\x9d^/¶\x83¯¶\x8dZÍ\x98\x8d7ÃXÊZÇ-\x0e¹yR[0m" 400 -]
+[2026-05-22 16:32:15,327: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('ªª\x00\x00\x00\x12\x00\x00\x00+\x00\x07\x06\x8a\x8a\x03\x04\x03\x03\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04í')]
+[2026-05-22 16:32:15,327: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03¼gY\x1f\x09Ð*îfå\x91¸\x8a¼\x91½Q\x0bÑ­N,\x93è\x05¥@\x96d¾$\x1e ¬$î§'g\x05Òì°Àm\x86aS\x88Ò\x8ftl!øÜ³\x11Ú{?Ãå\x99\x92\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85ªª\x00\x00\x00\x12\x00\x00\x00+\x00\x07\x06\x8a\x8a\x03\x04\x03\x03\x00\x1b\x00\x03\x02\x00\x02\x003\x04ï\x04í[0m" 400 -]
+[2026-05-22 16:32:15,389: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('kXX³\x05iüg2Ê')]
+[2026-05-22 16:32:15,393: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x033Ë^Ðõ^:wÉþj®Ï~\x046b!\x13aZ\x90\x11ð0í»2â\x0e\x8fª °\x8aQu|ãè\x11\x1ffTnµí-´-\x81\x8eø\x95÷á\x7fd4}ï\x19oÁÌ\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06eªª\x00\x00\x003\x04ï\x04í\x1a\x1a\x00\x01\x00\x11ì\x04ÀñÈµOc\x8et\x8a\x1bfÆoÈÅ\x09k\x19\x1b°T\x99Ë%Ê\x02\x17%¡X6I¸ii,À¤¨$¸°¬ÚB!ñ;eóñ©Yèl¿cw\x04æiB;*Ýb5Ï\x98\x86\x95U¥qç\x9e;¨\x1d~¶nKûMc¨\x8amRª\x09ÁbÅF\x84\x1dÕ¬ @#½:\x99³ü2¿&piì<\x07"\x0dÐ\\wÜ ÀÈ@\x99ô\x98!Ê1\x7fr\x00\x90Ær~Õ\x10\x9f»\x98\x15ï(³GµÍ\x1cºV\x8dÄ\x1f\x00-\x11]°z\x09Ê\x8d\x7fª\x06\x14'~-3\x1d{óyÞjr@\x97¿\x05\x02EÁ#\x90*ùY\x106\x8eä¢\x87)Ce1ä±7+ ÷X\x89M@\x95\x00QNØWBÌu\x8c&L\x03uÔ#9¥\x97\x83\x8cÊ~\x1aGÂÂ$©å\x8a\x1fÆ\x9d\x9b\x01kÐË±\x1c5¿=y±\x14¢H¡µ\\Í\x8b/Ùr\x9dÌ\x80+\x18&Ç \x09l_¶¦*Ö<\x1eV¸[\x06)xÄ"Xi3vqj_\x08'0§yM$"q×>\x9a¥­½\x16½Ü·¿¹³¾{cc.÷«½\x8a¿)à@\x16ËÇdÊ7\x1fÆb\x8c9\x03yfU\x1dy\x01 +EÌ§\x0f\x9aÄ¦7fg\x00ú\x1bä«!|i9G4yö¢'\x82\x84\x1eÄ¥±à\x8a\x06Ó\x83/¼©11(rl9\x99\x83Ë§\x0f|>Rv7ÜøpÐ\x08ÁW\x94\x99\x8cÜ«ÐqÉÅ¡>s<Z\x975p5\x11S¯\x02\x18\x8dè5\x96\x05\x8c\x93\x0c\x81Û\x1cvw\x888¾£\x03\x8eÖ\x1f¹v¡\x1dÔ1\x95÷G°'¨\x1dkXX³\x05iüg2Ê[0m" 400 -]
+[2026-05-22 16:32:15,393: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('.\x93D')]
+[2026-05-22 16:32:15,393: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03\x03ÓL;\x94ç\x81ø\x06\x0c\x1a\x197\x96KöÒu"ìJ^vº\x1bÝjs!\x0fhA \x0fû3kë\x7f¨é/úÃWDZ×\x15}÷/\x8drç.\x0b\x7f@¿±Ëêx?\x00 \x1a\x1a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85jj\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00\x1b\x00\x03\x02\x00\x02\x00#\x00\x00ÿ\x01\x00\x01\x00\x00\x0b\x00\x02\x01\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04í\x1a\x1a\x00\x01\x00\x11ì\x04À\x07»oë4\x9f\x96à6¥k\x07hXHíY\x0d.\x93D[0m" 400 -]
+[2026-05-22 16:32:15,646: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] code 400, message Bad request version ('\x95>Ç¤\x00\x18')]
+[2026-05-22 16:32:15,646: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:15] "[31m[1m\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03`ì\x0e\x07³\x03\\àþ&-w­(Hï¹B\x0b\x10\x15\x9f¬ß\x9fè/\x7f8v\x0c¤ î~\x0c°M-;\x85\x06¥\x01\x14D\x1c\x9bO\x12\x13\x90\x7f\x1b\x9e\x97\x8d4«T\x85ãÒ.|\x00 ºº\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06eúú\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x17\x00\x00\x00\x1b\x00\x03\x02\x00\x02þ\x0d\x00Ú\x00\x00\x01\x00\x01s\x00 \x88¬X¦\x85(\x03Ý¤¹²K\x11\x0fU~/ïæVÒh°\x89\\Ó~ÏÉ\x1e v\x00°{úØ£P½°Ðÿñ\x9aÚ0m½ÓtídÖAåêãßSþò\x98\x9d\x12»òq¾\x10l\x7fJ|)Íý¢j­3õ\x98\x060Ð\x9d\x01×ãçO~\x84\x83uÞê\x85)\x9b{\x0dË\x9f\x1e«\x1f÷\x0c\x95>Ç¤\x00\x18[0m" 400 -]
+[2026-05-22 16:32:21,313: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version ('\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00+\x00\x07\x06êê\x03\x04\x03\x03ÿ\x01\x00\x01\x00\x00')]
+[2026-05-22 16:32:21,313: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x06Ò\x01\x00\x06Î\x03\x03Æ\x00\x13\x89üñáUkÛnZUÀ\x9f1)W\x1aH*\x0eÍè8\x09\x84æ²\x97Ô\x8a Í£÷j­q-aP]«ã\x01^(O§fæý\x8a\x13?t\x9bn#V\x00Â=~\x00 êê\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06e\x9a\x9a\x00\x00\x00#\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhost\x00\x17\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00-\x00\x02\x01\x01\x00+\x00\x07\x06êê\x03\x04\x03\x03ÿ\x01\x00\x01\x00\x00[0m" 400 -]
+[2026-05-22 16:32:21,317: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version ('Ý\x08\x00\x17\x00\x00\x00+\x00\x07\x06::\x03\x04\x03\x03DÍ\x00\x05\x00\x03\x02h2\x00')]
+[2026-05-22 16:32:21,318: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03AJBw\x81¡Èvd£\x16"\x1c\x8aª=\x1aÿ9 \x8c\x84\x81þçB¥Òjq\x1f« ¥QO\x0f\\¶u2\x1dö\x0c:(¶Æ\x1bê\x89Þ/³\x97\x1e\x02¼\x11¤\x9eÿÅ\x8bÒ\x00 \x8a\x8a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06Eúú\x00\x00\x00\x12\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x010\x00 D\x88\x03)\x8eRÆd³\x81ãVøæ´K®¬µ\x8e¾KÎáÐ<Q\x15N\x06@\x19\x00\x90Ú\x9d0é3'\x0b\x1b>n\x97ÞÝ)+.\x8b_\x84\x94\x06N2\x05â\x1c¿F;Ð^A¸Q­\x0dûÎÀ\x06Û$KD\x12b,\x98¼\x08\x8fßÅ\x1e9ï\x82u\x1aÓ\x8b\x91\x8feÄÐ(?E\x03\x82ì\x98\x9c®\\­=ä¼ÃÚ\x88\x03Z@\x9fW\x93j\x04\x83\x044½Iø\x86/z\x18íPËÀçã_]r¶éI\x18m-{\x81"\x0b\x1eî\x1f\x16D÷À_\x05©\x86\x87\x96]LÞå\x86ö¦\x1b\x1fÝ\x08\x00\x17\x00\x00\x00+\x00\x07\x06::\x03\x04\x03\x03DÍ\x00\x05\x00\x03\x02h2\x00[0m" 400 -]
+[2026-05-22 16:32:21,581: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version ('ç\x00')]
+[2026-05-22 16:32:21,581: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x06ò\x01\x00\x06î\x03\x03\x99lW\x01 ìÐFZI¦\\ç\x9b\x8b\x10hî\x97ï\x1cº_\x88(ù²Æªå\x15ã @ò^Ó\x19¡Ü¬\x9f.\x18Ù¢æe·\x00\x8fé\x04\x01\x8e®Ú¹d4c\x1b0íÔ\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06\x85ºº\x00\x00\x00#\x00\x00DÍ\x00\x05\x00\x03\x02h2\x00\x1b\x00\x03\x02\x00\x02\x00+\x00\x07\x06\x9a\x9a\x03\x04\x03\x03\x00\x05\x00\x05\x01\x00\x00\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhost\x00\x12\x00\x00þ\x0d\x00ú\x00\x00\x01\x00\x01j\x00 \x81©Q\x84H\x1cî\x9d\x82û_~\x18\x8bVå nJ\x10,ó\x17½è¬øªõJZ\x1f\x00Ðûî\x96\x1aèÆøM±ý\x89é\x0d*\x1c\x19\x12·£}:\x00L¤ØËþ¢_ÿ\x0dº)\x1a@g\x129éÄZpFÑOQ¾C\x86YÚdÊ²¤«\x9f«\x9aëbÜ\x1c\x8föy©; ë©e\x83\x1a\x08ý\x15\x8d¬\x1b\x0b3\x97`\x8bþ_\x07&\x86\x11Gíò¢ï¹ß\x8e®:3\x0b\x118Ã\x18¨TGÃ(¯bB2a°î³¯MÉCÚE3ÎÌ\x9e\x93ë\x12iø\x0b,\x86Xÿä\x0dð\x9bI9î\x00¢HH\x1b\x1f\x1d\x98uÂ§ç3\x8c\x9fì\x1c·0bý\x0c0lÔä*\x193µ\x9eTö\x9a\x8e+\x04¬\x8e \x89¡1Õ\x09ÖÄ\x91\x94Y\x8bp¦îF\x9c9\x81\x09\x0dç\x00[0m" 400 -]
+[2026-05-22 16:32:21,621: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version ('5e')]
+[2026-05-22 16:32:21,622: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03\x09\x0d\x91Ð+Ó\x18ì ã\x91¢}w\x94\x9aéC}¸Xõq±:\x1a\x14H$\x05\x18J \x81WÍ\x8fS\x05\x01èÞ©~Ò\x93]\x10\x16bT\x15Û×5î\x15h½E:uz\x9dÉ\x00 \x9a\x9a\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥\x8a\x8a\x00\x00\x00\x12\x00\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x17\x00\x00\x00\x10\x00\x0e\x00\x0c\x02h2\x08http/1.1\x00\x00\x00\x0e\x00\x0c\x00\x00\x09localhost\x00+\x00\x07\x06ZZ\x03\x04\x03\x03\x00-\x00\x02\x01\x01\x00#\x00\x00ÿ\x01\x00\x01\x00\x00\x0b\x00\x02\x01\x00þ\x0d\x01\x1a\x00\x00\x01\x00\x01\x0e\x00 Ó\x98Ü0$À«Z\x91lîlS\x064ºf\x10Àî\x8f3¬!Þ.¯ö[\x8f\x96\x7f\x00ðõe\x96[\x12{}´fP*Ý8\x0cØ¡\x8e\x91½éÂ\x10\x98C&;H\x92\\\x9aÁ\x0dÔ~|å­~\x92 O\x88Ìt\x86;\x86ìÏ\x8cãç²aæÌR½´Í>jr\x99\x8ag´´xÒ\x11½H(9¿þE\x9a\\Ú\x7f¡_÷Û\x13\x14+#¥½ýÍ\x06¨\x1fi\x0blÆwùM%(A[XtÜü\x93~³\x8a­ýcJ÷Èj\x03×6\x967.\x18:f£RU)ë\x89ß&úå\x8còtF\x1bÕ-ì]\x9a°È ÷\x80HL\x00I\x10ñ\x8f\x91a´\x1d\x1cÿ\x81ÃCë]ËâÉz\x0c'1\x0eD\x91ãæÕ·f\x83áÿ\x8ef$6hº\x8by`»Æ\x7f\x9d\x81òNlÕÓM\x97¨´ºiìè\x87Ê\x91É\x1a\x86­²\x04#¼ÞË\x1b]\x9a\x1eì! \x003\x04ï\x04í**\x00\x01\x00\x11ì\x04Àn\x9c|´À.¿<\x9d\x1bòl\x01\x17\x99\x8d2\x13£³\x0eÄ\x03r»\x06Ðe\x09\x9c]\x9a*8¹;òì\x0dA\x04\x08#ª1\x03\x9b\x01\x06ð\x1e2Jµy\x08¹â\x06È0T\x08\x1b\x1c/M\x12¹I&G\x1eÐªDÇLü\x13-HÑ¸\x95£\x18¤8?g8}¾F\x0c\x94\x84;²\x85\x1c1J¦\x94{*\x16ë`xü,×Ö`ýG`_²\x89gõ¹ÃÊ­\x8d\x9a7º\x18\x89\x1bÊY³\x94\x92\x8eP¥\x8a[7ÃóT3Ç_59dUÁ¸\x9dé`FÑ}\x96ø\x143\x18¬\x00»N(b?ðPª\x19\x10Râ¤fyR\x01\x99"Å\x12l¨\x02&\x1a\x84Hf{\x9a%7vY\x0bx\x86\x92US\x8e\x8c\x1c\x0b\x11pBòR¹\x98=\x1f@CU&\x91\x00Gz\x0e¡ªís\x1e\x87\x0c\x98#26ì[~ZJR¿0I\x0eËQ¼\x90VH0¸QC\x1d7ë\x01þ\x90«Ñ)Ë¨UL5\x85\x1bí£[¹²\x0bßl\x90Y|«\x83Òh'\x80\x89\x84ÚrTÐ\x07oË'?ì\x8e\x8f 3\x8a\x95p\x8câRMZ\x19ZK³\x0e\x10Ã»Lf®y0zì*ãÐC¤$\x04Ê¨3å¨_<Ù¾\x0d5e[0m" 400 -]
+[2026-05-22 16:32:21,624: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version (")µrðÛ\x08ö\x83êF\x90A\x00\x90Âk]ÉÝ'3º\x99:Ç\x80CU²\x08Í\x11OÆ¯hSB^Â\x83ªÜ[*×Eyy")]
+[2026-05-22 16:32:21,625: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x06²\x01\x00\x06®\x03\x03\x8f\x15=\x90Í¾Ííí¥50`æU7®É\x18Û÷|ô¦Ë\x83\x95\x9cò.X\x91 ­\x9e=àKÙí\x88û\x0eÚÞÞ¹zrÛéýWÀ*n¥Pì<¥6ú ~\x00 úú\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06E**\x00\x00þ\x0d\x00º\x00\x00\x01\x00\x01\x9b\x00 '¼\x08÷\x10¬F\x8e1ú<r8HõF\x81b\x93\x85)µrðÛ\x08ö\x83êF\x90A\x00\x90Âk]ÉÝ'3º\x99:Ç\x80CU²\x08Í\x11OÆ¯hSB^Â\x83ªÜ[*×Eyy[0m" 400 -]
+[2026-05-22 16:32:21,892: ERROR: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] code 400, message Bad request version ('¸P\x8e¡[¿÷ö\x86\x93Æ7Þ\x03ÉU¤@²ð+:2\x17Ð\x92\x8ew`L\x14\x93:!\x18O@U\x93Ó\x974\x161\x08÷|ªh\x84Uÿú\x98')]
+[2026-05-22 16:32:21,892: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:32:21] "[31m[1m\x16\x03\x01\x07\x12\x01\x00\x07\x0e\x03\x03¨ÐòÌ\x16û\x09.\x9f  Ûe\x94\x12\x13§ÄrÀ0ÒÅ\x93lo»Æî(Qº ¹$\x01b\x7f\x1a¹Vlâ\x1aïu(3\x09\x98*Á¡Í\x9bó(\x11Æ\x13\x1f\x87\x01Û\x82\x00 ÚÚ\x13\x01\x13\x02\x13\x03À+À/À,À0Ì©Ì¨À\x13À\x14\x00\x9c\x00\x9d\x00/\x005\x01\x00\x06¥ZZ\x00\x00\x00\x0b\x00\x02\x01\x00\x00\x1b\x00\x03\x02\x00\x02\x00\x17\x00\x00\x00\x0d\x00\x12\x00\x10\x04\x03\x08\x04\x04\x01\x05\x03\x08\x05\x05\x01\x08\x06\x06\x01\x003\x04ï\x04íJJ\x00\x01\x00\x11ì\x04Àñ\x8b\x90²\x13Ì¨{\x8b£\x86\x80mR<\x98\x98U\x85àÈ±(q\x9b{\x89ä;\x0d«Üºä\x06u\x838R²\x14Rýq³lD\x88Ý&\x07ªÕ\x8bù\x03\x999r^K%.\x0ck\x1d\x8d»\x8eíçJ×Ñ¥:²W\x80Â\x1añ\x99\x93Ê9§VjB :>\x15HË\x87è°ã&c\x9dá\x88ØB,1<·Ë\x18(ç\x97¼&y \x1bæ\x03\x04\x1b³¹5\x98½Y\x93ìL\x17yH\x17<å³Sû»ä1\x9b½«»h´*¡J\x88mÖª|J\x98\x8bÚeÈq\x1cìt\x00Øäp\x907?\x9dì\x99DÕjM6\x8f¨\x89iãò\x17\x02\x97P;\x1c\x0f\x89\x09$©Å¼<µ\x14.\x885\x85%kÁ×\x1a9Û\x80\x01g\x04Å \x19 \x0bQ\x03\x86:×<q¿\x05À\x9cÆ2u*¬ôhC0¥\x1a°Ã\x80às¾¬9nCÜÆ»µ\x9e£u\x0f\x0cS\x99\x1aö°úL\x1c>9¶o\x1b¯KìÏ\x97\x800\x8f¢¸\x1ax¶¹\x81jmü+\x84©\x7fç¤¯´öJò\x830\x0eK¤ñD\x1bæ\x91½®¶¬\x0b\x93b\x80Â\x81!\x93:së\x00ê(ÁJ£\x05ìH|+:\x1e%qÅó4\x1d\x82\x15¯SK²î\x97\x0bä\x04&5u+èf\x1d0\x84$`s\x8c\x1a 14Ü±xñÅ9éÊ¬\x9b¹\x16\x93uX\x9c\x82í\x82_Ptp5%=>\x93Á©!9¥¬¾««T.\x1c\x9c#0\x01!\x93©\x9bØLtH~×\x81\x03\x1b<Wñ¸\x99Hs$îÜKcð«~¼b\x14\x9a\x1f¸P\x8e¡[¿÷ö\x86\x93Æ7Þ\x03ÉU¤@²ð+:2\x17Ð\x92\x8ew`L\x14\x93:!\x18O@U\x93Ó\x974\x161\x08÷|ªh\x84Uÿú\x98[0m" 400 -]
+[2026-05-22 16:33:03,531: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:33:03] "GET / HTTP/1.1" 200 -]
+[2026-05-22 16:33:16,008: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:33:16] "POST /predict HTTP/1.1" 200 -]
+[2026-05-22 16:33:37,197: INFO: _internal: 127.0.0.1 - - [22/May/2026 16:33:37] "POST /predict HTTP/1.1" 200 -]
+[2026-05-25 22:27:22,495: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-25 22:27:22,498: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-25 22:27:30,368: INFO: _internal: 127.0.0.1 - - [25/May/2026 22:27:30] "GET / HTTP/1.1" 200 -]
+[2026-05-25 22:27:46,277: INFO: _internal: 127.0.0.1 - - [25/May/2026 22:27:46] "POST /predict HTTP/1.1" 200 -]
+[2026-05-25 22:28:09,682: INFO: _internal: 127.0.0.1 - - [25/May/2026 22:28:09] "POST /predict HTTP/1.1" 200 -]
+[2026-05-25 22:28:25,650: INFO: _internal: 127.0.0.1 - - [25/May/2026 22:28:25] "POST /predict HTTP/1.1" 200 -]
+[2026-05-26 17:33:55,037: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 17:33:55,037: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:33:55,054: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:33:55,060: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:33:55,060: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 17:33:55,067: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 17:33:59,393: ERROR: data_ingestion: 'WindowsPath' object has no attribute 'write']
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 399, in download
+    f.write(chunk)
+    ^^^^^^^
+AttributeError: 'WindowsPath' object has no attribute 'write'
+[2026-05-26 17:33:59,397: ERROR: main: 'WindowsPath' object has no attribute 'write']
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 15, in <module>
+    obj.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 21, in main
+    data_ingestion.download_file()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 39, in download_file
+    raise e
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 399, in download
+    f.write(chunk)
+    ^^^^^^^
+AttributeError: 'WindowsPath' object has no attribute 'write'
+[2026-05-26 17:38:18,502: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 17:38:18,517: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:38:18,520: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:38:18,520: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:38:18,520: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 17:38:18,520: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 17:47:07,326: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts\data_ingestion\kidney_dataset.zip] ]
+[2026-05-26 17:47:07,326: INFO: data_ingestion: Extracting dataset zip file]
+[2026-05-26 17:47:59,024: INFO: data_ingestion: Dataset zip file extracted successfully to :[artifacts\data_ingestion]]
+[2026-05-26 17:47:59,032: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-26 17:47:59,033: INFO: main: ******************]
+[2026-05-26 17:47:59,033: INFO: main: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-26 17:47:59,042: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:47:59,042: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:47:59,056: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:47:59,060: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-26 17:48:00,564: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-26 17:48:00,802: ERROR: main: name 'x' is not defined]
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 29, in <module>
+    obj.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_02_prepare_base_model.py", line 22, in main
+    prepare_base_model.update_base_model()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\prepare_base_model.py", line 64, in update_base_model
+    full_model = self._prepare_full_model(
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\prepare_base_model.py", line 37, in _prepare_full_model
+    flatten_in = tf.keras.layers.Dropout(0.3)(x)
+                                              ^
+NameError: name 'x' is not defined
+[2026-05-26 17:50:01,285: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 17:50:01,289: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:50:01,289: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:50:01,289: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:50:01,289: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 17:50:01,289: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 17:51:28,705: ERROR: data_ingestion: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1049, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(66961408 bytes read, 1560957900 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1257, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1149, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1027, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 927, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 398, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 824, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))
+[2026-05-26 17:51:28,759: ERROR: main: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1049, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(66961408 bytes read, 1560957900 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1257, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1149, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1027, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 927, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 15, in <module>
+    obj.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 21, in main
+    data_ingestion.download_file()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 39, in download_file
+    raise e
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 398, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 824, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(66961408 bytes read, 1560957900 more expected)', IncompleteRead(66961408 bytes read, 1560957900 more expected))
+[2026-05-26 17:52:23,829: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 17:52:23,845: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:52:23,845: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:52:23,845: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:52:23,845: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 17:52:23,845: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 17:52:41,734: ERROR: data_ingestion: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1049, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(594242 bytes read, 1627325066 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1257, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1149, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1027, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 927, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 398, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 824, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))
+[2026-05-26 17:52:41,751: ERROR: main: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))]
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 903, in _error_catcher
+    yield
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1049, in _raw_read
+    raise IncompleteRead(self._fp_bytes_read, self.length_remaining)
+urllib3.exceptions.IncompleteRead: IncompleteRead(594242 bytes read, 1627325066 more expected)
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 822, in generate
+    yield from self.raw.stream(chunk_size, decode_content=True)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1257, in stream
+    data = self.read(amt=amt, decode_content=decode_content)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1149, in read
+    data = self._raw_read(amt)
+           ^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 1027, in _raw_read
+    with self._error_catcher():
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\contextlib.py", line 158, in __exit__
+    self.gen.throw(typ, value, traceback)
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\urllib3\response.py", line 927, in _error_catcher
+    raise ProtocolError(arg, e) from e
+urllib3.exceptions.ProtocolError: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 15, in <module>
+    obj.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_01_data_ingestion.py", line 21, in main
+    data_ingestion.download_file()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 39, in download_file
+    raise e
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\data_ingestion.py", line 29, in download_file
+    gdown.download(
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\gdown\download.py", line 398, in download
+    for chunk in res.iter_content(chunk_size=CHUNK_SIZE):
+  File "C:\Users\p00za\anaconda3\envs\Kidney\Lib\site-packages\requests\models.py", line 824, in generate
+    raise ChunkedEncodingError(e)
+requests.exceptions.ChunkedEncodingError: ('Connection broken: IncompleteRead(594242 bytes read, 1627325066 more expected)', IncompleteRead(594242 bytes read, 1627325066 more expected))
+[2026-05-26 17:55:17,185: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 17:55:17,185: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 17:55:17,200: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 17:55:17,200: INFO: Common: created directory at :artifacts]
+[2026-05-26 17:55:17,200: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 17:55:17,200: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 18:11:00,488: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts\data_ingestion\kidney_dataset.zip] ]
+[2026-05-26 18:11:00,489: INFO: data_ingestion: Extracting dataset zip file]
+[2026-05-26 18:11:45,271: INFO: data_ingestion: Dataset zip file extracted successfully to :[artifacts\data_ingestion]]
+[2026-05-26 18:11:45,271: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-26 18:11:45,271: INFO: main: ******************]
+[2026-05-26 18:11:45,271: INFO: main: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-26 18:11:45,292: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 18:11:45,297: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 18:11:45,301: INFO: Common: created directory at :artifacts]
+[2026-05-26 18:11:45,303: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-26 18:11:46,445: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-26 18:11:47,010: INFO: main: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-26 18:11:47,010: INFO: main: ****************************************]
+[2026-05-26 18:11:47,010: INFO: main: >>>>> stage Training started <<<<<]
+[2026-05-26 18:11:47,017: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 18:11:47,039: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 18:11:47,041: INFO: Common: created directory at :artifacts]
+[2026-05-26 18:11:47,049: INFO: Common: created directory at :artifacts\training]
+[2026-05-26 18:11:49,052: ERROR: main: module 'tensorflow' has no attribute 'karas']
+Traceback (most recent call last):
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\main.py", line 42, in <module>
+    obj.main()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\pipeline\stage_03_model_training.py", line 28, in main
+    training.train()
+  File "C:\Users\p00za\Desktop\Collage projects\Kidney_Disease_Classification_Project\src\cnnClassifier\components\model_training.py", line 109, in train
+    tf.karas.callbacks.ReduceLROnPlateau(
+    ^^^^^^^^
+AttributeError: module 'tensorflow' has no attribute 'karas'
+[2026-05-26 18:14:30,267: INFO: main: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-26 18:14:30,269: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 18:14:30,269: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 18:14:30,269: INFO: Common: created directory at :artifacts]
+[2026-05-26 18:14:30,269: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-26 18:14:30,278: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-26 18:24:17,911: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts\data_ingestion\kidney_dataset.zip] ]
+[2026-05-26 18:24:17,911: INFO: data_ingestion: Extracting dataset zip file]
+[2026-05-26 18:25:01,772: INFO: data_ingestion: Dataset zip file extracted successfully to :[artifacts\data_ingestion]]
+[2026-05-26 18:25:01,788: INFO: main: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-26 18:25:01,788: INFO: main: ******************]
+[2026-05-26 18:25:01,788: INFO: main: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-26 18:25:01,788: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 18:25:01,805: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 18:25:01,808: INFO: Common: created directory at :artifacts]
+[2026-05-26 18:25:01,808: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-26 18:25:02,852: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-26 18:25:03,489: INFO: main: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-26 18:25:03,489: INFO: main: ****************************************]
+[2026-05-26 18:25:03,489: INFO: main: >>>>> stage Training started <<<<<]
+[2026-05-26 18:25:03,498: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 18:25:03,500: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 18:25:03,500: INFO: Common: created directory at :artifacts]
+[2026-05-26 18:25:03,500: INFO: Common: created directory at :artifacts\training]
+[2026-05-26 23:45:22,479: INFO: main: >>>>> stage Training completed <<<<<]
+[2026-05-26 23:45:22,479: INFO: main: **************************]
+[2026-05-26 23:45:22,479: INFO: main: >>>>> stage Evaluation stage started <<<<<]
+[2026-05-26 23:45:22,479: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-26 23:45:22,527: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-26 23:45:22,527: INFO: Common: created directory at :artifacts]
+[2026-05-26 23:51:58,021: INFO: Common: json file saved at : scores.json]
+[2026-05-26 23:52:04,941: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-05-26 23:52:05,689: INFO: builder_impl: Assets written to: C:\Users\p00za\AppData\Local\Temp\tmp6fkh2ma4\model\data\model\assets]
+[2026-05-26 23:52:26,474: INFO: main: >>>>> stage Evaluation stage completed <<<<<
+
+x==========x]
+[2026-05-28 00:24:11,211: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage started <<<<<]
+[2026-05-28 00:24:11,218: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-28 00:24:11,218: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-28 00:24:11,218: INFO: Common: created directory at :artifacts]
+[2026-05-28 00:24:11,218: INFO: Common: created directory at :artifacts/data_ingestion]
+[2026-05-28 00:24:11,218: INFO: data_ingestion: Downloading dataset from :[https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing] into :[artifacts\data_ingestion\kidney_dataset.zip]]
+[2026-05-28 00:58:02,815: INFO: data_ingestion: File downloaded successfully from https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing and saved to :[artifacts\data_ingestion\kidney_dataset.zip] ]
+[2026-05-28 00:58:02,818: INFO: data_ingestion: Extracting dataset zip file]
+[2026-05-28 00:58:55,953: INFO: data_ingestion: Dataset zip file extracted successfully to :[artifacts\data_ingestion]]
+[2026-05-28 00:58:55,960: INFO: stage_01_data_ingestion: >>>>> stage Data Ingestion Stage completed <<<<<
+
+x==========x]
+[2026-05-28 01:04:55,231: INFO: stage_02_prepare_base_model: ******************]
+[2026-05-28 01:04:55,247: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model started <<<<<]
+[2026-05-28 01:04:55,250: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-28 01:04:55,261: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-28 01:04:55,263: INFO: Common: created directory at :artifacts]
+[2026-05-28 01:04:55,263: INFO: Common: created directory at :artifacts/prepare_base_model]
+[2026-05-28 01:04:56,919: WARNING: saving_utils: Compiled the loaded model, but the compiled metrics have yet to be built. `model.compile_metrics` will be empty until you train or evaluate the model.]
+[2026-05-28 01:04:57,533: INFO: stage_02_prepare_base_model: >>>>> stage Prepare Base Model completed <<<<<
+
+x==================================x]
+[2026-05-28 01:05:26,219: INFO: stage_03_model_training: ****************************************]
+[2026-05-28 01:05:26,219: INFO: stage_03_model_training: >>>>> stage Training started <<<<<]
+[2026-05-28 01:05:26,223: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-28 01:05:26,233: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-28 01:05:26,233: INFO: Common: created directory at :artifacts]
+[2026-05-28 01:05:26,239: INFO: Common: created directory at :artifacts\training]
+[2026-05-28 15:43:24,961: INFO: stage_03_model_training: ****************************************]
+[2026-05-28 15:43:24,963: INFO: stage_03_model_training: >>>>> stage Training started <<<<<]
+[2026-05-28 15:43:24,985: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-28 15:43:24,985: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-28 15:43:24,985: INFO: Common: created directory at :artifacts]
+[2026-05-28 15:43:24,985: INFO: Common: created directory at :artifacts\training]
+[2026-05-28 21:18:50,595: INFO: stage_03_model_training: >>>>> stage Training completed <<<<<]
+[2026-05-28 21:19:22,145: INFO: stage_04_model_evaluation_mlflow: **************************]
+[2026-05-28 21:19:22,145: INFO: stage_04_model_evaluation_mlflow: >>>>> stage Evaluation stage started <<<<<]
+[2026-05-28 21:19:22,159: INFO: Common: yaml file:config\config.yaml loaded successfully]
+[2026-05-28 21:19:22,165: INFO: Common: yaml file:params.yaml loaded successfully]
+[2026-05-28 21:19:22,165: INFO: Common: created directory at :artifacts]
+[2026-05-28 21:25:46,680: INFO: Common: json file saved at : scores.json]
+[2026-05-28 21:25:54,798: WARNING: save: Found untraced functions such as _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op, _jit_compiled_convolution_op while saving (showing 5 of 14). These functions will not be directly callable after loading.]
+[2026-05-28 21:25:56,605: INFO: builder_impl: Assets written to: C:\Users\p00za\AppData\Local\Temp\tmp0_tzcdyr\model\data\model\assets]
+[2026-05-28 21:26:26,756: INFO: stage_04_model_evaluation_mlflow: >>>>> stage Evaluation stage completed <<<<<
+
+x==========x]
+[2026-05-28 21:45:13,619: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-28 21:45:13,621: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-28 21:45:13,621: INFO: _internal:  * Restarting with stat]
+[2026-05-28 21:45:21,035: WARNING: _internal:  * Debugger is active!]
+[2026-05-28 21:45:21,075: INFO: _internal:  * Debugger PIN: 531-266-122]
+[2026-05-28 21:45:45,839: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:45:45] "GET / HTTP/1.1" 200 -]
+[2026-05-28 21:45:47,057: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:45:47] "[33mGET /favicon.ico HTTP/1.1[0m" 404 -]
+[2026-05-28 21:46:28,194: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:46:28] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:46:47,730: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:46:47] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:47:10,135: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:47:10] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:47:27,721: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:47:27] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:47:43,343: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:47:43] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:48:03,692: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:48:03] "POST /predict HTTP/1.1" 200 -]
+[2026-05-28 21:48:22,682: INFO: _internal: 127.0.0.1 - - [28/May/2026 21:48:22] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 00:21:20,281: INFO: _internal: 127.0.0.1 - - [29/May/2026 00:21:20] "GET / HTTP/1.1" 200 -]
+[2026-05-29 00:21:24,027: INFO: _internal: 127.0.0.1 - - [29/May/2026 00:21:24] "GET / HTTP/1.1" 200 -]
+[2026-05-29 00:21:37,760: INFO: _internal: 127.0.0.1 - - [29/May/2026 00:21:37] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 00:21:54,704: INFO: _internal: 127.0.0.1 - - [29/May/2026 00:21:54] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 01:12:36,102: INFO: _internal:  * Detected change in 'C:\\Users\\p00za\\Desktop\\Collage projects\\Kidney_Disease_Classification_Project\\src\\cnnClassifier\\pipeline\\prediction.py', reloading]
+[2026-05-29 01:12:38,294: INFO: _internal:  * Restarting with stat]
+[2026-05-29 01:14:48,878: INFO: _internal: [31m[1mWARNING: This is a development server. Do not use it in a production deployment. Use a production WSGI server instead.[0m
+ * Running on all addresses (0.0.0.0)
+ * Running on http://127.0.0.1:8080
+ * Running on http://172.16.186.173:8080]
+[2026-05-29 01:14:48,878: INFO: _internal: [33mPress CTRL+C to quit[0m]
+[2026-05-29 01:14:48,878: INFO: _internal:  * Restarting with stat]
+[2026-05-29 01:14:59,891: WARNING: _internal:  * Debugger is active!]
+[2026-05-29 01:14:59,908: INFO: _internal:  * Debugger PIN: 531-266-122]
+[2026-05-29 01:14:59,975: INFO: _internal: 127.0.0.1 - - [29/May/2026 01:14:59] "GET / HTTP/1.1" 200 -]
+[2026-05-29 01:15:15,644: INFO: _internal: 127.0.0.1 - - [29/May/2026 01:15:15] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 01:15:36,422: INFO: _internal: 127.0.0.1 - - [29/May/2026 01:15:36] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 01:15:56,766: INFO: _internal: 127.0.0.1 - - [29/May/2026 01:15:56] "POST /predict HTTP/1.1" 200 -]
+[2026-05-29 01:16:19,387: INFO: _internal: 127.0.0.1 - - [29/May/2026 01:16:19] "POST /predict HTTP/1.1" 200 -]

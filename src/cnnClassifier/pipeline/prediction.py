@@ -16,7 +16,8 @@ class PredictionPipeline:
 
         # Path of trained model
         self.model_path = os.path.join(
-            "model",
+            "artifacts",
+            "training",
             "trained_model.h5"
         )
 
