@@ -1,10 +1,11 @@
-FROM python :3.11.15
+FROM python:3.11-slim
 
-RUN apt update -y && apt install awscli -y
+RUN apt-get update -y && apt-get install awscli -y
+
 WORKDIR /app
 
-COPY ./app
+COPY . /app
+
 RUN pip install -r requirements.txt
 
-CMD ['python3', 'app.py']
-
+CMD ["python3", "app.py"]
