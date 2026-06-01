@@ -1,8 +1,11 @@
 import os
+import numpy as np
+import json
 import urllib.request as request
 from zipfile import ZipFile
 import tensorflow as tf
 import time
+from sklearn.utils.class_weight import compute_class_weight
 from cnnClassifier.entity.config_entity import TrainingConfig
 from pathlib import Path
 from tensorflow.keras.applications.vgg16 import preprocess_input
@@ -20,9 +23,32 @@ class Training:
     
     def train_valid_generator(self):
 
-        datagenerator_kwargs = dict(
+        # validation generator
+
+        valid_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
             preprocessing_function=preprocess_input,
             validation_split=0.20
+        )
+
+        # Training generator
+
+        train_datagen = tf.keras.preprocessing.image.ImageDataGenerator(
+            preprocessing_function=preprocess_input,
+            validation_split=0.20,
+            rotation_range = 10,
+            zoom_range = 0.1,
+            horizontal_flip = True,
+            brightness_range = [0.9,1.1]
+
+        )
+
+
+        dataflow_kwargs = dict(
+            target_size=self.config.params_image_size[:-1],
+            batch_size=self.config.params_batch_size,
+            interpolation="bilinear",
+            class_mode="categorical"
+            
         )
 
         dataflow_kwargs = dict(
@@ -32,67 +58,77 @@ class Training:
             class_mode="categorical"
         )
 
-        valid_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-            **datagenerator_kwargs
-        )
-
-        print("TRAIN PATH:", self.config.training_data)
-        print("CLASSES:", os.listdir(self.config.training_data))
-
-        self.valid_generator = valid_datagenerator.flow_from_directory(
-            directory=self.config.training_data,
-            subset="validation",
-            shuffle=False,
-            **dataflow_kwargs
-        )
-
-        if self.config.params_is_augmentation:
-
-            train_datagenerator = tf.keras.preprocessing.image.ImageDataGenerator(
-                rotation_range=40,
-                horizontal_flip=True,
-                width_shift_range=0.2,
-                height_shift_range=0.2,
-                shear_range=0.2,
-                zoom_range=0.2,
-                preprocessing_function=preprocess_input,
-                validation_split=0.20
-            )
-
-        else:
-            train_datagenerator = valid_datagenerator
-
-        self.train_generator = train_datagenerator.flow_from_directory(
+        # Training Data
+        self.train_generator = train_datagen.flow_from_directory(
             directory=self.config.training_data,
             subset="training",
             shuffle=True,
             **dataflow_kwargs
         )
 
-        print(self.train_generator.class_indices)
-    
-        
-    @staticmethod
-    def save_model(path: Path, model: tf.keras.Model):
-        model.save(path)
+        # Validation Data
 
+        self.valid_generator = valid_datagen.flow_from_directory(
+            directory=self.config.training_data,
+            subset="validation",
+            shuffle=False,
+            **dataflow_kwargs
+        )
+
+        # save class labels
+        with open("artifacts/class_indices.json", "w") as f:
+            json.dump(self.train_generator.class_indices, f)
+
+
+        print(" Class mapping: ")
+        print(self.train_generator.class_indices)
+
+        # Compute class weights
+        class_weights = compute_class_weight(
+            class_weight="balanced",
+            classes=np.unique(self.train_generator.classes),
+            y=self.train_generator.classes
+        ) 
+
+        self.class_weights = dict(enumerate(class_weights))
+
+        print("Class weights: ")
+        print(self.class_weights)
 
 
     def train(self):
 
-        self.steps_per_epoch = self.train_generator.samples // self.train_generator.batch_size
-        self.validation_steps = self.valid_generator.samples // self.valid_generator.batch_size
+        callbacks = [
 
+            tf.keras.callbacks.EarlyStopping(
+                monitor="val_loss",
+                patience=5,
+                restore_best_weights=True
+            ),
 
-        self.model.fit(
+            tf.keras.callbacks.ReduceLROnPlateau(
+                monitor="val_loss",
+                factor=0.2,
+                patience=3,
+                verbose=1
+            )  ,
+
+            tf.keras.callbacks.ModelCheckpoint(
+                filepath = "artifacts/training/best_model.h5",
+                save_best_only=True,
+                monitor = 'val_accuracy',
+            ) 
+        ]
+
+        history = self.model.fit(
             self.train_generator,
-            epochs=self.config.params_epochs,
-            steps_per_epoch=self.steps_per_epoch,
-            validation_steps=self.validation_steps,
             validation_data=self.valid_generator,
-            
+            epochs=self.config.params_epochs,
+            class_weight=self.class_weights,
+            callbacks=callbacks
         )
 
-        self.save_model(
-            path=self.config.trained_model_path, 
-            model=self.model)
+        # Save the final trained model
+
+        self.model.save(self.config.trained_model_path)
+

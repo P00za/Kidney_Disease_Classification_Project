@@ -12,25 +12,29 @@ class PrepareBaseModel:
 
 
     def get_base_model(self):
+
+        # Load pretrained VGG16 model without the top layers
         self.model = tf.keras.applications.vgg16.VGG16(
             input_shape = self.config.params_image_size,
             weights = self.config.params_weights,
             include_top = self.config.params_include_top
         )  
 
-        self.save_model(path = self.config.base_model_path,model = self.model)  
+        self.save_model(
+            path = self.config.base_model_path,
+            model = self.model)  
 
     @staticmethod
-    def _prepare_full_model(model,classes,freeze_all,freeze_till,learning_rate):
-        if freeze_all:
-            for layer in model.layers:
-                layer.trainable = False
+    def _prepare_full_model(model,classes,learning_rate):
 
-        elif (freeze_till is not None) and (freeze_till > 0):
-            for layer in model.layers[:-freeze_till]:
-                layer.trainable = False
-
+        # Freeze the layers of the base model
+        for layer in model.layers[:-4]:
+            layer.trainable = False
+        
+        # Add classification head to the base model
+        
         flatten_in = tf.keras.layers.GlobalAveragePooling2D()(model.output)
+        flatten_in = tf.keras.layers.Dropout(0.3)(flatten_in)
         prediction = tf.keras.layers.Dense(
             units=classes, 
             activation="softmax"
@@ -44,8 +48,11 @@ class PrepareBaseModel:
 
         full_model.compile(
             optimizer=tf.keras.optimizers.Adam(learning_rate=learning_rate),
-            loss=tf.keras.losses.CategoricalCrossentropy(),
-            metrics=["accuracy"]
+            loss="CategoricalCrossentropy",
+            metrics=[
+                "accuracy",
+                tf.keras.metrics.Precision(name="precision"),
+                tf.keras.metrics.Recall(name="recall")]
 
         )
 
@@ -53,15 +60,17 @@ class PrepareBaseModel:
         return full_model
     
     def update_base_model(self):
+
         full_model = self._prepare_full_model(
-            model=self.model,
-            classes=self.config.params_classes,
-            freeze_all=True,
-            freeze_till=None,
+            model = self.model,
+            classes = self.config.params_classes,
             learning_rate=self.config.params_learning_rate
         )
 
-        self.save_model(path = self.config.updated_base_model_path,model = full_model)
+        self.save_model(
+            path = self.config.updated_base_model_path,
+            model = full_model
+            )
 
 
     @staticmethod

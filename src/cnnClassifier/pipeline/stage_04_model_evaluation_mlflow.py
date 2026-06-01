@@ -8,20 +8,26 @@ STAGE_NAME = "Evaluation stage"
 
 
 class EvaluationPipeline:
+
     def __init__(self):
         pass
 
     def main(self):
+
         config = ConfigurationManager()
+
         evaluation_config = config.get_evaluation_config()
+
         evaluation = Evaluation(config= evaluation_config)
         evaluation.evaluation()
-        evaluation.save_score()
+        #evaluation.save_score()
         evaluation.log_into_mlflow()
 
 
 if __name__ == "__main__":
+
     try:
+        
         logger.info(f"**************************")
         logger.info(f">>>>> stage {STAGE_NAME} started <<<<<")
         obj = EvaluationPipeline()

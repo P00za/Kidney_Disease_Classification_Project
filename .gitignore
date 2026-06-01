@@ -1,2 +1,9 @@
-artifacts/*
-.env
+artifacts/
+logs/
+__pycache__/
+*.pyc
+*.h5
+inputImage.jpg/
+mlruns/
+.env__pycache__/
+*.pyc

@@ -1,19 +1,33 @@
-artifacts_root : artifacts
+artifacts_root: artifacts
+
 
 data_ingestion:
     root_dir: artifacts/data_ingestion
+
+    # Google Drive dataset link
     source_url: https://drive.google.com/file/d/1BOm_Pr25bBfHD96TNNBTE0xA7SfHvzs5/view?usp=sharing
-    local_data_file: artifacts/data_ingestion/kidney_disease.csv
+
+    # Correct file extension
+    local_data_file: artifacts/data_ingestion/kidney_dataset.zip
+
     unzip_dir: artifacts/data_ingestion
 
 
 prepare_base_model:
     root_dir: artifacts/prepare_base_model
-    base_model_path: artifacts/prepare_base_model/base_model.h5
-    updated_base_model_path: artifacts/prepare_base_model/updated_base_model.h5    
 
+    base_model_path: artifacts/prepare_base_model/base_model.h5
+
+    updated_base_model_path: artifacts/prepare_base_model/updated_base_model.h5
 
 
 training:
     root_dir: artifacts/training
+
     trained_model_path: artifacts/training/trained_model.h5
+
+
+validation:
+    root_dir: artifacts/validation
+
+    status_file: artifacts/validation/status.txt    

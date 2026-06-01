@@ -24,8 +24,8 @@ class ConfigurationManager:
         data_ingestion_config = DataIngestionConfig(
             root_dir = config.root_dir,
             source_url = config.source_url,
-            local_data_file = config.local_data_file,
-            unzip_dir = config.unzip_dir
+            local_data_file = Path(config.local_data_file),
+            unzip_dir =Path(config.unzip_dir)
         )
 
         return data_ingestion_config
@@ -57,7 +57,9 @@ class ConfigurationManager:
         prepare_base_model = self.config.prepare_base_model
         params = self.params
         training_data = os.path.join(
-            self.config.data_ingestion.unzip_dir,"CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone","CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone"
+            self.config.data_ingestion.unzip_dir,
+            "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone",
+            "CT-KIDNEY-DATASET-Normal-Cyst-Tumor-Stone"
         )
 
         create_directories([
@@ -90,3 +92,5 @@ class ConfigurationManager:
             params_batch_size = self.params.BATCH_SIZE
         )
         return eval_config    
+    
+

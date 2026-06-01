@@ -2,18 +2,13 @@ import tensorflow as tf
 from pathlib import Path
 import mlflow
 import mlflow.keras
+
+from tensorflow.keras.applications.vgg16 import preprocess_input
 from urllib.parse import urlparse
 from cnnClassifier.entity.config_entity import EvaluationConfig
 from cnnClassifier.utils.Common import save_json
 import os
 from dotenv import load_dotenv
-
-load_dotenv()
-
-os.environ["MLFLOW_TRACKING_URI"] = os.getenv("MLFLOW_TRACKING_URI")
-os.environ["MLFLOW_TRACKING_USERNAME"] = os.getenv("MLFLOW_TRACKING_USERNAME")
-os.environ["MLFLOW_TRACKING_PASSWORD"] = os.getenv("MLFLOW_TRACKING_PASSWORD")
-
 
 class Evaluation:
     def __init__(
@@ -25,8 +20,8 @@ class Evaluation:
     def _valid_generator(self):
 
         datagenerator_kwargs = dict(
-            rescale=1./255,
-            validation_split=0.30
+            preprocessing_function=preprocess_input,
+            validation_split=0.20
         )
 
         dataflow_kwargs = dict(
@@ -41,10 +36,7 @@ class Evaluation:
             **datagenerator_kwargs
         )
 
-        import os
-
-        print("DATASET PATH:", self.config.training_data)
-        print("CLASSES FOUND:", os.listdir(self.config.training_data))
+        
 
         self.valid_generator = valid_datagenerator.flow_from_directory(
             directory=self.config.training_data,
@@ -68,19 +60,37 @@ class Evaluation:
     
 
     def save_score(self):
-        scores = {"loss": self.score[0], "accuracy": self.score[1]}
-        save_json(path=Path("scores.json"), data=scores)
+        scores = {
+            "loss": self.score[0], 
+            "accuracy": self.score[1],
+            "precision": self.score[2],
+            "recall": self.score[3]
+        }
+        save_json(
+            path=Path("scores.json"), 
+            data=scores
+        )
 
 
 
     def log_into_mlflow(self):
+
         mlflow.set_registry_uri(self.config.mlflow_uri)
-        tracking_url_type_store = urlparse(mlflow.get_tracking_uri()).scheme
+
+        tracking_url_type_store = urlparse(
+            mlflow.get_tracking_uri()
+        ).scheme
 
         with mlflow.start_run():
+
             mlflow.log_params(self.config.all_params)
             mlflow.log_metrics(
-                {"loss": self.score[0], "accuracy": self.score[1]}
+                {
+                "loss": self.score[0], 
+                "accuracy": self.score[1],
+                "precision": self.score[2],
+                "recall": self.score[3]
+                }
             )
 
             # Model registry does not work with file store
@@ -89,7 +99,14 @@ class Evaluation:
                 # There are some other ways to use the Model Registry, which depends on the use case,
                 # please refer to the doc for more information:
                 # https://mlflow.org/docs/latest/model-registry.html#api-workflow
-                mlflow.keras.log_model(self.model, "model", registered_model_name="CNNClassifierModel")
+                mlflow.keras.log_model(
+                    self.model,
+                    "model", 
+                    registered_model_name="CNNClassifierModel"
+                )
             else:
-                mlflow.keras.log_model(self.model, "model")
+                mlflow.keras.log_model(
+                    self.model, 
+                    "model"
+                )
 
