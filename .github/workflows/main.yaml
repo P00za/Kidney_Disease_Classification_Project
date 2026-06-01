@@ -4,8 +4,11 @@ on:
 push:
 branches:
 - main
+
+```
 paths-ignore:
-- README.md
+  - README.md
+```
 
 permissions:
 id-token: write
@@ -23,6 +26,7 @@ integration:
 
 ```
 name: Continuous Integration
+
 runs-on: ubuntu-latest
 
 steps:
@@ -30,28 +34,35 @@ steps:
   - name: Checkout Repository
     uses: actions/checkout@v4
 
+
   - name: Setup Python
     uses: actions/setup-python@v5
     with:
       python-version: "3.10"
 
+
   - name: Install Dependencies
     run: |
+
       python -m pip install --upgrade pip
+
       pip install -r requirements.txt
+
 
   - name: Verify Project Imports
     run: |
+
       python -c "
 ```
 
-from src.cnnClassifier.pipeline.prediction import PredictionPipeline
+from cnnClassifier.pipeline.prediction import PredictionPipeline
 print('Imports OK')
 "
 
 ```
   - name: Lint Check
     run: |
+
       echo "Lint Passed"
 ```
 
@@ -78,25 +89,38 @@ steps:
   - name: Checkout
     uses: actions/checkout@v4
 
-  - name: Configure AWS Credentials
+
+  - name: Configure AWS
     uses: aws-actions/configure-aws-credentials@v4
 
     with:
       aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: ${{ secrets.AWS_REGION }}
 
-  - name: Login to Amazon ECR
+      aws-secret-access-key:
+        ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      aws-region:
+        ${{ secrets.AWS_REGION }}
+
+
+  - name: Login ECR
     id: login-ecr
     uses: aws-actions/amazon-ecr-login@v2
 
-  - name: Build and Push Docker Image
+
+  - name: Build Push Docker
     id: build
 
     env:
-      ECR_REGISTRY: ${{ steps.login-ecr.outputs.registry }}
-      ECR_REPOSITORY: ${{ secrets.ECR_REPOSITORY_NAME }}
-      IMAGE_TAG: latest
+
+      ECR_REGISTRY:
+        ${{ steps.login-ecr.outputs.registry }}
+
+      ECR_REPOSITORY:
+        ${{ secrets.ECR_REPOSITORY_NAME }}
+
+      IMAGE_TAG:
+        latest
 
     run: |
 
@@ -130,42 +154,57 @@ steps:
   - name: Checkout
     uses: actions/checkout@v4
 
-  - name: Configure AWS Credentials
+
+  - name: Configure AWS
     uses: aws-actions/configure-aws-credentials@v4
 
     with:
-      aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-      aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-      aws-region: ${{ secrets.AWS_REGION }}
 
-  - name: Login to ECR
+      aws-access-key-id:
+        ${{ secrets.AWS_ACCESS_KEY_ID }}
+
+      aws-secret-access-key:
+        ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+
+      aws-region:
+        ${{ secrets.AWS_REGION }}
+
+
+  - name: Login ECR
     uses: aws-actions/amazon-ecr-login@v2
+
 
   - name: Pull Latest Image
     run: |
+
       docker pull \
       ${{ needs.build-and-push-ecr-image.outputs.image }}
 
-  - name: Stop Existing Container
+
+  - name: Stop Old Container
+
     run: |
+
       docker stop cnncls || true
+
       docker rm cnncls || true
 
-  - name: Start New Container
+
+  - name: Start Container
+
     run: |
 
       docker run -d \
-      --restart unless-stopped \
       --name cnncls \
       -p 8080:8080 \
+      -e AWS_ACCESS_KEY_ID=${{ secrets.AWS_ACCESS_KEY_ID }} \
+      -e AWS_SECRET_ACCESS_KEY=${{ secrets.AWS_SECRET_ACCESS_KEY }} \
       ${{ needs.build-and-push-ecr-image.outputs.image }}
 
-  - name: Verify Container
-    run: |
-      sleep 15
-      docker ps
 
   - name: Cleanup Docker
+
     run: |
+
       docker image prune -f
 ```
